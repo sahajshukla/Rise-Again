@@ -1,0 +1,42 @@
+.images1{
+  width: 100%;
+}
+
+.links{
+  color: #cc0000;
+  text-align: center;
+}
+
+.links:hover{
+  color: #cc0000;
+}
+
+.links:onclick{
+  color: #cc0000;
+
+}
+
+
+.absLeft{
+    text-align: right;
+    margin-right: -100%;
+}
+
+.main-div{
+  width: 100%;
+  text-align: center;
+  float: right;
+  margin-top: -150%;
+
+}
+
+.lines{
+  float:right;
+  color: #cc0000;
+
+}
+
+.area {
+  height:80%;
+  width: 80%
+}

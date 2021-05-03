@@ -1,0 +1,93 @@
+.banner{
+  color: #cc0000;
+  text-align: center;
+
+}
+.email{
+  text-align: left;
+  color: #cc0000;
+}
+
+.password{
+  text-align: left;
+  color: #cc0000;
+}
+.Card1{
+  background-color:#fff2e6;
+  border: 1px #cc0000;
+  outline-color: #cc0000;
+  border-color: #cc0000;
+}
+
+.links{
+  color: #cc0000;
+}
+
+.links:hover{
+  color: #cc0000;
+}
+
+.links:onclick{
+  color: #cc0000;
+}
+
+.headline{
+  text-align: center;
+  align-items: none;
+  margin-left: 0;
+}
+
+
+Button.banner{
+  text-align:center;
+  width:100%;
+  background-color: #cc0000;
+  border: 1px solid #cc0000;
+  color:#ffffff;
+}
+
+
+Button.banner:hover{
+  text-align:center;
+  width:100%;
+  background-color: #cc0000;
+  border: 1px solid #cc0000;
+  color:#ffffff;
+}
+
+#Bio {
+ background-color:#fff2e6;
+ margin-left: -600px;
+ margin-right: -600px;
+ overflow-x: hidden;
+}
+
+#BioWrapper {
+ margin: 0 auto;
+ padding: 40px 600px;
+ overflow-x: hidden;
+
+}
+
+
+.input1{
+  align-items: center;
+  width:90%;
+  height: 200px;
+  background-color:#fff2e6;
+  border-color: #cc0000;
+}
+
+
+.input1.onClick{
+  width:100%;
+  height: 80px;
+  background-color:#fff2e6;
+  border-color: #cc0000;
+}
+
+.radio1{
+  color: #cc0000;
+  align-items: center;
+  
+}
