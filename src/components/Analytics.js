@@ -1,8 +1,8 @@
-import EssayForm from './forms.js';
+import FinalScore from './FinalScore.js';
 export default function Diary() {
 return (
 <div>
-<EssayForm/>
+<FinalScore/>
 </div>
 );
 }

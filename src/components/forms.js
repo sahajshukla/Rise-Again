@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './trial.css'
+import axios from 'axios'
 class EssayForm extends Component {
   constructor(props){
     super(props)
@@ -13,7 +14,9 @@ class EssayForm extends Component {
     event.preventDefault();
     const data = this.state;
     console.log(data)
-
+    const response = axios.post('http://localhost:5000/feelings', data)
+    .then(res => {console.log(res)}).catch(error=>{console.log(error)})
+    alert("response subitted")
   }
   handleInputChange = (event) =>{
     //console.log(event)

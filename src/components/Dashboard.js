@@ -7,7 +7,6 @@ import './dashboard.css';
 import {Sidebar} from './sidebar.js'
 import {Diary} from './diary.js'
 //import {entries, storeEntry, removeEntry} from './diary.js'
-
 export default function Dashboard() {
   const [error, setError] = useState("")
   const{currentUser, logout} = useAuth()
@@ -21,6 +20,19 @@ export default function Dashboard() {
     }
     catch{
       setError('Failed to log out')
+
+    }
+  }
+
+  async function handleAnalytics(){
+    setError()
+    try{
+      //await logout()
+      history.push('/Analytics')
+      setError()
+    }
+    catch{
+      setError('Failed to load Analytics')
 
     }
   }
@@ -46,6 +58,7 @@ export default function Dashboard() {
           <li>Nav Item</li>
           <li>Nav Item</li>
           <p><Button className= 'links' variant= 'link'  onClick={handlePage}> Diary </Button></p>
+          <p><Button className= 'links' variant= 'link'  onClick={handleAnalytics}> analytics </Button></p>
           <p><Button className= 'links' variant= 'link'  onClick={handleLogout}> Log Out </Button></p>
         </div>
         </Sidebar>

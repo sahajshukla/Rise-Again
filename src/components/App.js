@@ -7,6 +7,7 @@ import {Container} from 'react-bootstrap'
 import {AuthProvider} from "../contexts/AuthContext"
 import PrivateRoute from "./PrivateRoute"
 import Diary from "./diary"
+import Analytics from "./Analytics"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 function App() {
   return(
@@ -22,6 +23,7 @@ function App() {
             <Route path = "/login" component= {Login} />
             <Route path= "/forgot-password" component = {ForgotPassword} />
             <Route path= "/diary" component = {Diary} />
+            <Route path= "/Analytics" component = {Analytics} />
           </Switch>
         </AuthProvider>
       </Router>
