@@ -1,8 +1,9 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, jsonify
 import json
 from flask_cors import CORS
 from postgres import db
 from flask_sqlalchemy import SQLAlchemy
+from scoregenerator import DFGenerator
 import psycopg2
 from postgres import User
 
@@ -20,7 +21,6 @@ def feelings():
       db.session.commit()
       return "success"
 @app.route('/score', methods= ['GET'])
-
 def score():
      connection = psycopg2.connect(user="sahajshukla",
                                   password="riseagain",
@@ -31,8 +31,15 @@ def score():
      postgreSQL_select_Query = "SELECT * FROM public.\"user\""
      cursor.execute(postgreSQL_select_Query)
      results = cursor.fetchall()
-     print(type(results))
-     return (1,2,4)
+     generator_obj = DFGenerator(results)
+     list_new, list_new1 = generator_obj.datagenerator()
+     data_score = generator_obj.naturalprocessor()
+     
+     data_score = data_score.tolist()
+     print(data_score)
+     json_str = json.dumps(data_score)
+     #print(dictionary)
+     return jsonify(data_score)
 
 if __name__ == '__main__':
    app.run(debug = True,port=5000)
