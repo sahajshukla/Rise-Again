@@ -58,12 +58,12 @@ export default function Dashboard() {
           <li>Nav Item</li>
           <li>Nav Item</li>
           <p><Button className= 'links' variant= 'link'  onClick={handlePage}> Diary </Button></p>
-          <p><Button className= 'links' variant= 'link'  onClick={handleAnalytics}> analytics </Button></p>
+          <p><Button className= 'links' variant= 'link'  onClick={handleAnalytics}> Analytics </Button></p>
           <p><Button className= 'links' variant= 'link'  onClick={handleLogout}> Log Out </Button></p>
         </div>
         </Sidebar>
     <div className='main-div'>
-     <FetchQuote/>
+      <FetchQuote/>
     </div>
     </>
 )

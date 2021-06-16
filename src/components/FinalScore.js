@@ -3,13 +3,19 @@ import { AxisModel, Category, ChartComponent, Inject, LineSeries, SeriesCollecti
 import axios from 'axios'
 import './trial.css'
 import Plot from 'react-plotly.js';
-import {Sidebar} from './sidebar.js'
+import {Sidebar} from './sidebar.js';
 import {Line, Bar} from 'react-chartjs-2';
+import {Diary} from './diary.js';
+import {Card, Button, Alert} from 'react-bootstrap'
+import { Link, useHistory} from 'react-router-dom'
+import {useAuth} from '../contexts/AuthContext'
+import FetchQuote from "./quoteFetcher";
+import './dashboard.css';
+import Dashboard from "./Dashboard.js";
 
 var count_arr = [];
 
 export default class FinalScore extends React.Component {
-
   chartRef = React.createRef();
   state = {
     data:[]
@@ -37,13 +43,16 @@ export default class FinalScore extends React.Component {
           borderColor: "rgba(75,192,192,1)"
         }]
       }
+
     return (
       <>
       <ul>
       {/*{this.state.data.map(score => <li>{score}</li>)}*/}
       So, this is how you have been feeling, my friend!
       </ul>
-      <Line data={data} />
+      {/*< Dashboard/>*/}
+      < Line data={data}/>
+
     </>
 
     )

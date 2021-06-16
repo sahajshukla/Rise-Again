@@ -49,15 +49,16 @@ class DFGenerator:
             dict = analyser.polarity_scores(sentence)
             max_key = max(dict, key=dict.get)
             max_val = max(dict.values())
+            print(max_val)
             if max_key == "pos":
-                intensity = 1
+                intensity = 5
             elif max_key == "neg":
-                intensity = -1
+                intensity = -5
             elif max_key == "neu":
-                intensity = -0.1
+                intensity = -0
             elif max_key == "compound":
-                intensity = 0.2
+                intensity = 0
             score = intensity*max_val
             self.exp_score.append(score)
-        self.fin_score = np.multiply(self.exp_score, self.feelscore)
+        self.fin_score = (np.add(self.exp_score, self.feelscore))/2
         return self.fin_score
