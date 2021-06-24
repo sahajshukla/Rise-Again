@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.links{
+.links:link{
   color: #cc0000;
   text-align: center;
 }
@@ -13,7 +13,6 @@
 
 .links:onclick{
   color: #cc0000;
-
 }
 
 
@@ -39,4 +38,9 @@
 .area {
   height:80%;
   width: 80%
+}
+
+.lines:link{
+  color: #cc0000;
+  text-align: center;
 }

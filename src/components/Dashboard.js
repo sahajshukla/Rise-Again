@@ -55,8 +55,6 @@ export default function Dashboard() {
     <>
     <Sidebar width={300} height={"100vh"}>
       <div className='lines'>
-          <li>Nav Item</li>
-          <li>Nav Item</li>
           <p><Button className= 'links' variant= 'link'  onClick={handlePage}> Diary </Button></p>
           <p><Button className= 'links' variant= 'link'  onClick={handleAnalytics}> Analytics </Button></p>
           <p><Button className= 'links' variant= 'link'  onClick={handleLogout}> Log Out </Button></p>
