@@ -1,15 +1,29 @@
-import React, {Component} from 'react'
-import './trial.css'
-import axios from 'axios'
+import React, {Component} from 'react';
+import {useAuth} from '../contexts/AuthContext';
+import { UserContext } from './UserContext';
+import './trial.css';
+import {auth} from '../firebase';
+import axios from 'axios';
+
+
+
 class EssayForm extends Component {
   constructor(props){
     super(props)
     this.state = {
+      user : null,
       essay: null,
       feelings: null
     }
     }
-
+  componentDidMount(){
+    let context = this;
+  auth.onAuthStateChanged(function(user) {
+      if (user) {
+        context.setState({user:user.email}, () => console.log(context.state));
+      }
+    });
+  }
   handleSubmit = (event) =>{
     event.preventDefault();
     const data = this.state;
@@ -19,7 +33,7 @@ class EssayForm extends Component {
     alert("response subitted")
   }
   handleInputChange = (event) =>{
-    //console.log(event)
+    console.log(event)
     //console.log(event.target.name)
     //console.log(event.target.value)
     this.setState({
@@ -29,6 +43,7 @@ class EssayForm extends Component {
   render() {
     const {essay} = this.state
     const {feelings} = this.state
+    const {user} = this.state
     return(
       <div className = 'Card1'>
       <h2 className = 'banner'> How do you feel today, friend?</h2>
@@ -42,6 +57,7 @@ class EssayForm extends Component {
       <p><input className= 'radio1' type = 'radio' value = 'Depressed' name = 'feelings' onChange = {this.handleInputChange}/> Depressed </p>
       <p><input className= 'radio1' type = 'radio' value = 'Helpless' name = 'feelings' onChange = {this.handleInputChange}/> Helpless </p>
       <p><input className= 'radio1' type = 'radio' value = 'Unsure' name = 'feelings' onChange = {this.handleInputChange}/> Unsure </p>
+
       <p><button className = 'banner'> Save </button></p>
       </form>
       </div>

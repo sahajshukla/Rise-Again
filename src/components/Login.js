@@ -3,27 +3,43 @@ import {Form, Button, Card, Alert} from 'react-bootstrap'
 import './trial.css'
 import {useAuth} from '../contexts/AuthContext'
 import {Link, useHistory} from 'react-router-dom'
+import {auth} from '../firebase';
+import UserDetails from './forms'
+import {Component} from 'react';
+import axios from 'axios';
 export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const {login} = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const [email, setEmail] = useState('')
     const history = useHistory()
 
     async function handleSubmit(e){
       e.preventDefault()
       try{
         setError('')
-        setLoading(true)
+        sendData()
         await login(emailRef.current.value, passwordRef.current.value)
-        history.push("/")
+        history.push("/dashboard")
+        setLoading(true)
       }
       catch{
         setError('Failed to log in')
       }
       setLoading(false)
     }
+
+    async function sendData(){
+      auth.onAuthStateChanged(function(user) {
+          if (user) {
+            setEmail(user.email)
+            const response = axios.post('http://localhost:5000/user', {email:user.email})
+          }
+        })
+    }
+
   return (
     <>
       <Card>
@@ -37,7 +53,7 @@ export default function Login() {
           </Form.Group>
           <Form.Group id = 'password' className="password">
             <Form.Label>Password</Form.Label>
-            <Form.Control type = 'password' ref = {passwordRef} required />
+            <Form.Control type = 'password' ref = {passwordRef} frequired />
           </Form.Group>
           <Button className="banner" disabled = {loading}  type = "submit">
            Log In
@@ -53,4 +69,5 @@ export default function Login() {
     </div>
   </>
   )
+
 }

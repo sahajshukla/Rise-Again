@@ -17,6 +17,8 @@
   border: 1px #cc0000;
   outline-color: #cc0000;
   border-color: #cc0000;
+  max-height: 100vh;
+
 }
 
 .links{
@@ -72,10 +74,13 @@ Button.banner:hover{
 
 .input1{
   align-items: center;
-  width:90%;
+  width:100%;
   height: 200px;
   background-color:#fff2e6;
   border-color: #cc0000;
+  align-items: center;
+  text-align: center;
+
 }
 
 
@@ -88,6 +93,20 @@ Button.banner:hover{
 
 .radio1{
   color: #cc0000;
+  align-items: left;
+  text-align: left;
+
+}
+
+.new_button{
   align-items: center;
-  
+  margin-top: 50px;
+
+}
+
+.imageClass{
+  align-items: center;
+  max-height: 100%;
+  max-width: 100%;
+
 }

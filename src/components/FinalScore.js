@@ -24,6 +24,7 @@ export default class FinalScore extends React.Component {
     axios.get('http://localhost:5000/score')
       .then(res => {
         this.setState({data:res.data});
+
       })
     }
 

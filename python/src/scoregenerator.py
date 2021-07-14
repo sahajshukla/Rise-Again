@@ -18,9 +18,9 @@ class DFGenerator:
     def datagenerator(self):
         self.feelings = []
         self.essay = []
-        for i in self.list:
-            self.feelings.append(i[1])
-            self.essay.append(i[2])
+        for i in range(len(self.list)):
+            self.feelings.append(self.list[i]['feelings'])
+            self.essay.append(self.list[i]['essay'])
         return(self.feelings, self.essay)
     def naturalprocessor(self):
         for i in self.feelings:

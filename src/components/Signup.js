@@ -1,19 +1,25 @@
 import React, { useRef,useState } from 'react'
 import './trial.css'
+import {auth} from '../firebase';
 import {Form, Button, Card, Alert} from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
 import {Link, useHistory} from 'react-router-dom'
+import axios from 'axios'
+
+
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const {signup} = useAuth()
     const [error, setError] = useState('')
+    const [email, setEmail] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
 
     async function handleSubmit(e){
       e.preventDefault()
+      sendData()
       if(passwordRef.current.value !== passwordConfirmRef.current.value){
         return setError('Passwords do not match')
       }
@@ -21,13 +27,24 @@ export default function Signup() {
         setError('')
         setLoading(true)
         await signup(emailRef.current.value, passwordRef.current.value)
-        history.push('/')
+        history.push('/dashboard')
       }
       catch{
         setError('Failed to create an account')
       }
       setLoading(false)
     }
+
+    async function sendData(){
+      auth.onAuthStateChanged(function(user) {
+          if (user) {
+            setEmail(user.email);
+            const response = axios.post('http://localhost:5000/user', {email:user.email})
+          }
+        })
+    }
+
+
   return (
     <>
     <Card>
